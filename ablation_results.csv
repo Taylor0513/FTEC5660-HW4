@@ -1,0 +1,7 @@
+config,change,chunks,recall@5,kept,rejected,accuracy
+B0,"naive RAG: get_text(), RecursiveCharacterTextSplitter, BM25 top-5, no parsing, never abstains",361,0.261,1.0,0.0,0.433
+V1,B0 + table_to_text for the tables,413,0.239,1.0,0.0,0.417
+V2,V1 + section-aware chunking with contextual chunk headers,788,0.739,1.0,0.0,0.783
+V3,"V2 + parse_query routing: company/doc-type/year filtering, per-company retrieval for comparisons",788,0.913,1.0,0.714,0.933
+V4,V3 + table row-label boost and query expansion,788,1.0,1.0,0.714,1.0
+V5,V4 + abstention (rules + LLM answerability check) = the submitted pipeline,788,1.0,1.0,1.0,1.0
